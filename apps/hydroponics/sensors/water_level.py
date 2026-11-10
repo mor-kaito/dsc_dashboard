@@ -22,7 +22,7 @@ def read():
         # ADS1115（I2C ADC）の初期化と電圧読み取り
         i2c = busio.I2C(board.SCL, board.SDA)
         ads = ADS.ADS1115(i2c)
-        chan = AnalogIn(ads, ADS.P0)  # A0チャンネルに接続されていると仮定
+        chan = AnalogIn(ads, ADS.P1)  # A0チャンネルに接続されていると仮定
 
         voltage = chan.voltage
 
@@ -48,3 +48,6 @@ def read():
             "unit": "cm",
         }
     ]
+
+if __name__ == "__main__":
+    print(read())
